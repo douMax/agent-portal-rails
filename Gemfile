@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'cloudinary'
 
+gem 'semantic-ui-sass'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

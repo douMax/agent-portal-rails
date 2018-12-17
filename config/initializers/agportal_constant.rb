@@ -1,0 +1,1 @@
+DOCU_CATEGORY = %w[Brochure Collateral Renders Floorplans Specifications].freeze
