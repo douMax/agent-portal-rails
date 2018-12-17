@@ -18,5 +18,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless @current_user.present? and @current_user.is_admin
   end
 
+  def check_if_sales_admin
+    redirect_to root_path unless @current_user.present? and @current_user.is_sales_admin
+  end
+
+
+
 
 end

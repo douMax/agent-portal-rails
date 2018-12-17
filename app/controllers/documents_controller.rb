@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+  before_action :check_if_logged_in
+  before_action :check_if_sales_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   # GET /documents

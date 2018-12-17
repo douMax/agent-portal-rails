@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181212110038) do
+ActiveRecord::Schema.define(version: 20181217131908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,37 @@ ActiveRecord::Schema.define(version: 20181212110038) do
     t.integer  "docu_type"
   end
 
+  create_table "lots", force: :cascade do |t|
+    t.string   "lot_no"
+    t.integer  "beds"
+    t.integer  "baths"
+    t.integer  "carpots"
+    t.decimal  "in_sqm",      precision: 10, scale: 2
+    t.decimal  "out_sqm",     precision: 10, scale: 2
+    t.decimal  "total_sqm",   precision: 10, scale: 2
+    t.string   "floor_level"
+    t.text     "plan_url"
+    t.text     "description"
+    t.integer  "status"
+    t.decimal  "price",       precision: 10, scale: 2
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "is_admin"
+    t.boolean  "is_sales_admin"
   end
 
 end
