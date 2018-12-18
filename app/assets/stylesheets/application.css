@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "semantic-ui";
+
 
 html, body {
   margin: 0;
@@ -23,7 +23,7 @@ html, body {
 
 .project-logo img {
   height: 40px;
-  width: auto !important
+  width: auto !important;
 }
 
 .project-logo span {
