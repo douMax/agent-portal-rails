@@ -1,9 +1,26 @@
-<div class="ui relaxed list">
+<div class="ui items">
   <% documents.each do |document| %>
-  <div class="item">
-    <%= cl_image_tag document.url %>
-    <div class="content">
-      <%= link_to document.title, cl_image_path(document.url || "#")  %>
+  <div class="item document-item">
+    <div class="ui image">
+      <%= link_to cl_image_path(document.url || "#"), target: "_blank" do %>
+      <%= cl_image_tag document.url, :width => 60, :height => 60, :crop => :fill, :format => :png %>
+      <% end %>
+    </div>
+    <div class="middle aligned content">
+      <h5>
+        <%= link_to document.title, cl_image_path(document.url || "#"), target: "_blank" %>
+
+        <% if @current_user.is_sales_admin || @current_user.is_admin %>
+          
+          <span class="margin-left-15 hidden-content">
+            <%= link_to edit_document_path(document) do %>
+              <i class="edit grey icon"></i>
+            <% end %>
+          </span>
+
+        <% end %>
+      </h5>
+  
     </div>
   </div>
   <% end %>

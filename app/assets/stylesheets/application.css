@@ -30,6 +30,19 @@ html, body {
   margin-left: 14px;
 }
 
+.hidden-content {
+  visibility: hidden;
+}
+
+.document-item:hover .hidden-content {
+  visibility: visible;
+}
+
+.margin-left-15 {
+  margin-left: 15px;
+
+}
+
 
 .margin-top-40 {
   margin-top: 40px;

@@ -1,6 +1,6 @@
 <div class="ui form">
   
-<%= form_for(document) do |f| %>
+<%= form_for(document, html:{multipart: true}) do |f| %>
 
   <div class="field">
     <%= f.label :title %>

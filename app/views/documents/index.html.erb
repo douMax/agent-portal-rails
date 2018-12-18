@@ -13,16 +13,18 @@
 
 
   <h3>Renders</h3>
-    <% Document.renders.each do |document| %>
-      <p><%= document.title %></p>
-    <% end %>
+    <%= render 'document_items', documents: Document.renders %>
   <div class="ui divider"></div>
 
 
   <h3>Floorplan</h3>
-    <% Document.floorplan.each do |document| %>
-      <p><%= document.title %></p>
-    <% end %>
+    <%= render 'document_items', documents: Document.floorplan %>    
+    
+  <div class="ui divider"></div>
+
+  <h3>Specifications</h3>
+    <%= render 'document_items', documents: Document.specifications %>    
+
   <div class="ui divider"></div>
 
 
