@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :check_if_logged_in
-  before_action :check_if_sales_admin
+  before_action :check_user_management_permission, except: [:edit, :update]
 
   # GET /users
   # GET /users.json
@@ -21,6 +20,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if @current_user.id != @user.id 
+      redirect_to error_path
+    end
   end
 
   # POST /users
@@ -42,6 +44,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    
+    if @current_user.id != @user.id 
+      redirect_to error_path
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

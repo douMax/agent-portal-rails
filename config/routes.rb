@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-
+  
   root to:"session#new"
+
+  get '/error' => 'pages#error'
+  get '/feedback' => 'pages#feedback'
+  get '/help' => 'pages#help'
+  get '/contact' => 'pages#contact'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

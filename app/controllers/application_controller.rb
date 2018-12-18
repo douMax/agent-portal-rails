@@ -22,7 +22,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless @current_user.present? and @current_user.is_sales_admin
   end
 
-
+  def check_user_management_permission
+    redirect_to error_path unless @current_user.present? && ( @current_user.is_sales_admin || @current_user.is_admin)
+  end
 
 
 end

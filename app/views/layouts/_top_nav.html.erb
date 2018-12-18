@@ -19,9 +19,14 @@
       </div>
     <% end %>
 
+    <% if @current_user.present? %>
     <div class="item">
-      <i class="cog icon"></i>
+      Hi, <%= @current_user.name %> 
+      <%= link_to edit_user_path(@current_user), class: "margin-left-15" do %>
+        <i class="cog icon"></i>
+      <% end %>
     </div>
+    <% end %>
   </div>
   
 </div>
