@@ -1,7 +1,26 @@
 class LotsController < ApplicationController
   before_action :check_if_logged_in
   before_action :set_project
-  before_action :set_lot, except: [:new, :create, :index]
+  before_action :set_lot, only: [:show, :edit, :destroy, :update]
+
+  def import
+    require 'csv'
+    puts "****** Upload starting....."
+
+    csv = CSV.read(params[:file].path, headers: true)
+    csv.each do |row|
+      row_hash = row.to_hash
+   
+      # create new lot
+      lot = Lot.new row_hash
+      lot.project = @project
+      lot.save
+      puts "***** lot #{lot.lot_no} created"
+    end
+
+    redirect_to project_lots_path, notice: "#{csv.count} lots imported"
+  end
+  
 
   def new
     @lot = Lot.new

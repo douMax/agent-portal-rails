@@ -1,0 +1,7 @@
+   <div class="ui container">
+   <%= form_tag lots_import_path(@project), multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import" %>
+    <% end %>
+   </div>
+

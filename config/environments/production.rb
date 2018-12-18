@@ -1,6 +1,12 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #======== Lingxiao, 19 December, 2018 ============#
+  #   config.assets.compile = true                  #
+  #   config.public_file_server.enabled = true      #
+  #======== Lingxiao, 19 December, 2018 ============#
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -24,7 +30,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

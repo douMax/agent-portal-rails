@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
+  post '/projects/:project_id/lots/import' => 'lots#import', :as => 'lots_import'
+
   resources :documents
   resources :users
   resources :projects do
