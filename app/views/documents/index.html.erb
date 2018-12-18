@@ -1,18 +1,14 @@
 
-<%= render "layouts/top_nav" %>
-<div class="ui container margin-top-80">
+<div class="ui container">
+
   
   <h3>Brochure</h3>
-    <% Document.brochure.each do |document| %>
-      <p><%= document.title %></p>
-    <% end %>
+   <%= render 'document_items', documents: Document.brochure %>
   <div class="ui divider"></div>
 
 
   <h3>Collateral</h3>
-    <% Document.collateral.each do |document| %>
-      <p><%= document.title %></p>
-    <% end %>
+    <%= render 'document_items', documents: Document.collateral %>
   <div class="ui divider"></div>
 
 

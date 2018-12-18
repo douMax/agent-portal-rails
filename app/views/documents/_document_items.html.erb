@@ -1,0 +1,10 @@
+<div class="ui relaxed list">
+  <% documents.each do |document| %>
+  <div class="item">
+    <%= cl_image_tag document.url %>
+    <div class="content">
+      <%= link_to document.title, cl_image_path(document.url || "#")  %>
+    </div>
+  </div>
+  <% end %>
+</div>

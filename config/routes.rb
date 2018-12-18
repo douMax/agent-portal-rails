@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'projects/new'
-
-  get 'projects/create'
-
-  get 'projects/edit'
-
-  get 'projects/update'
-
-  get 'projects/destroy'
 
   root to:"session#new"
 
@@ -18,5 +9,9 @@ Rails.application.routes.draw do
 
   resources :documents
   resources :users
+  resources :projects do
+    resources :lots
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

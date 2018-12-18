@@ -28,9 +28,14 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
 
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      @document.url = req['public_id']
+    end
+
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully uploaded.' }
+        format.html { redirect_to documents_path, notice: 'Document was successfully uploaded.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -42,9 +47,18 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1
   # PATCH/PUT /documents/1.json
   def update
+
+    @document.update(document_params)
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload params[:file]
+      @document.url = req['public_id']
+    end
+
+
     respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+      if @document.save
+        format.html { redirect_to documents_path, notice: 'Document was successfully updated.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }

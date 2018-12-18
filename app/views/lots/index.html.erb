@@ -1,0 +1,78 @@
+<div class="ui container">
+
+  <h2>We're here</h2>
+  <% if @current_user.is_admin || @current_user.is_sales_admin %>
+    <%= link_to 'Add Unit', new_project_lot_path, class:"ui primary button"%>
+    
+  <% end %>
+  <table class="ui striped sortable table">
+    <thead>
+      <tr>
+        <th>Lot/Unit No.</th>
+        <th>Beds</th>
+        <th>Baths</th>
+        <th>Parking</th>
+        <th>Price</th>
+        <th>Total Area</th>
+        <th>Internal</th>
+        <th>External</th>
+        <th>Floorplan</th>
+        <th>Reserve</th>
+        <% if @current_user.is_sales_admin || @current_user.is_admin %>
+        <th>Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+  
+    <tbody>
+    <% @lots.each do |lot| %>
+      <tr>
+        <td>
+          <strong><%= lot.lot_no %></strong>
+        </td>
+        <td>
+          <%= lot.beds %>
+          <i class="bed grey icon"></i>
+        </td>
+        <td>
+          <%= lot.baths %>
+          <i class="bath grey icon"></i>
+        </td>
+        <td>
+          <%= lot.carpots %>
+          <i class="car grey icon"></i>
+        </td>
+        <td>
+          <% if lot.sold? %>
+            <div class="ui orange label">SOLD</div>
+          <% else %>
+            <%= number_to_currency(lot.price, precision:0) %>
+          <% end %>
+        </td>
+        <td><%= lot.total_sqm %></td>
+        <td><%= lot.in_sqm %></td>
+        <td><%= lot.out_sqm %></td>
+        <td>
+          <%= link_to "Plan", cl_image_path(lot.plan_url), class:"ui tiny primary button", target: "_blank" %>
+        </td>
+        <td>
+          <div class="ui tiny button">Reserve</div>
+        </td>
+        <% if @current_user.is_sales_admin || @current_user.is_admin %>
+        <td>
+          <%= link_to  edit_project_lot_path(@project, lot) do %>
+            <i class="edit icon"></i>Edit
+          <% end %>
+        </td>
+        <% end %>
+      
+      
+      </tr>
+    <% end %>
+    </tbody>
+  
+  </table>
+
+
+</div>
+

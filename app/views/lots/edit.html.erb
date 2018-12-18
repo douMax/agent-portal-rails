@@ -1,0 +1,12 @@
+<div class="ui container">
+<div class="ui grid">
+<div class="ui six wide column">
+<h1>Edit Unit</h1>
+
+<%= render 'form' %>
+
+<div class="ui divider"></div>
+<%= link_to "delete", project_lot_path(@project, @lot), class: "ui red button", data:{:confirm => "Are you sure you want to delete this lot? The  data can not be recovered"}, :method => :delete %>
+</div>
+</div>
+</div>

@@ -1,29 +1,49 @@
+<div class="ui container">
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
 
-<table>
+<table class="ui table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Password digest</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Last time logged in</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
+      <% if user.is_admin && @current_user.id != user.id %>
+      <% else %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.password_digest %></td>
+        <td>N/A</td>
+        <td>
+          <%  if user.is_sales_admin %> 
+          Sales Admin
+          <% end %>
+          <% if user.is_admin %>
+          Super Admin
+          <% end %>
+        </td>
+        <td>N/A</td>
+        <% if @current_user.is_admin || @current_user.is_sales_admin %>
+          
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
+      <% end %>
+      
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, class:"ui primary button" %>
+</div>

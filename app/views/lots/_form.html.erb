@@ -1,0 +1,90 @@
+
+<div class="ui form">
+<%= form_for([@project, @lot], html:{multipart: true}) do |f| %>
+
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :lot_no %>
+      <%= f.text_field :lot_no %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Status: Open / Sold" %>
+      <%= f.select :status, [:open, :sold], {}, {class:"ui dropdown", include_blank: true}%>
+    </div>  
+  </div>
+
+  <div class="three fields">
+    <div class="field">
+      <%= f.label "Bedrooms" %>
+      <%= f.number_field :beds %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Bath" %>
+      <%= f.number_field :baths %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Parking" %>
+      <%= f.number_field :carpots %>
+    </div>
+  </div>
+
+  <div class="three fields">
+    <div class="field">
+      <%= f.label :in_sqm %>
+      <%= f.text_field :in_sqm %>
+    </div>
+
+    <div class="field">
+      <%= f.label :out_sqm %>
+      <%= f.text_field :out_sqm %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :total_sqm %>
+      <%= f.text_field :total_sqm %>
+    </div>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="three fields">
+    <div class="field">
+      <%= f.label "On Level" %>
+      <%= f.text_field :floor_level %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Facing" %>
+      <%= f.text_field :room_dir %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Type" %>
+      <%= f.text_field :room_type %>
+    </div>
+
+  </div>
+
+
+  <div class="field">
+    <%= f.label "Plan" %>
+    <%= f.cl_image_upload :plan_url %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label "Notes" %>
+    <%= f.text_area :description, :rows => 2 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"ui primary button"%>
+  </div>
+<% end %>
+</div>
