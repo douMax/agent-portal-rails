@@ -1,6 +1,12 @@
-<h1>Editing Document</h1>
+<div class="ui container">
+  <div class="ui grid">
+    <div class="ui eight wide column">
 
-<%= render 'form', document: @document %>
+    <h1>Editing Document</h1>
 
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+    <%= render 'form', document: @document %>
+    <div class="ui divider"></div>
+    <%= link_to 'Back', documents_path %>
+    </div>
+  </div>
+</div>
