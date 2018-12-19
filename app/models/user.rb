@@ -9,6 +9,7 @@
 #  updated_at      :datetime         not null
 #  is_admin        :boolean
 #  is_sales_admin  :boolean
+#  email           :string
 #
 
 class User < ApplicationRecord

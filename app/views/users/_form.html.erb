@@ -12,6 +12,13 @@
     </div>
   <% end %>
 
+
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -28,7 +35,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create User", class:"ui primary button"%>
+    <%= f.submit  class:"ui primary button"%>
   </div>
 <% end %>
 </div>

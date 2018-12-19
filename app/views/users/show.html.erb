@@ -1,14 +1,32 @@
+<div class="ui container">
+<h1>My Account</h1>
+<div class="ui grid">
+<div class="ui six wide column">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<table class="ui very basic table">
+  <tr>
+    <td><strong>Email</strong></td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <% if @current_user.is_admin %>
+        <p>You are a super admin. Nough Said.
+      <% end %>
+      <% if @current_user.is_sales_admin %>
+        <p>You are an admin. You can edit content and create user logins for agents</p>
+      <% end %>
+      <%= link_to 'Edit Account', edit_user_path(@user) %> 
+    </td>
+  </tr>
+</table>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>
+</div>
+</div>
