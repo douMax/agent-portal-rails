@@ -9,7 +9,7 @@
     </div>
 
     <div class="field">
-      <%= f.label "Status: Open / Sold" %>
+      <label>Status: OPEN | SOLD </label> 
       <%= f.select :status, [:open, :sold], {}, {class:"ui dropdown", include_blank: true}%>
     </div>  
   </div>
@@ -17,7 +17,7 @@
   <div class="three fields">
     <div class="field">
       <%= f.label "Bedrooms" %>
-      <%= f.number_field :beds %>
+      <%= f.number_field :beds %>Status
     </div>
 
     <div class="field">

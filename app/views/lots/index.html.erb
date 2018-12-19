@@ -53,7 +53,11 @@
         <td><%= lot.in_sqm %></td>
         <td><%= lot.out_sqm %></td>
         <td>
-          <%= link_to "Plan", cl_image_path(lot.plan_url), class:"ui tiny primary button", target: "_blank" %>
+          <% if lot.plan_url.present? %>
+            <%= link_to "Plan", cl_image_path(lot.plan_url), class:"ui tiny primary button", target: "_blank" %>
+          <% else %>
+            <%= link_to 'Plan', "#", class:"ui tiny disabled button" %>
+          <% end %>
         </td>
         <td>
           <div class="ui tiny button">Reserve</div>
