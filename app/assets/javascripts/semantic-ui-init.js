@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $('table').tablesort()
+  $('table').tablesort();
 
-  $('.ui.dropdown').dropdown()
+  $('.ui.dropdown').dropdown();
 
-})
+});

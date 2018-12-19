@@ -3,7 +3,7 @@
 <%= form_for([@project, @lot], html:{multipart: true}) do |f| %>
 
   <div class="two fields">
-    <div class="field">
+    <div class="required field">
       <%= f.label :lot_no %>
       <%= f.text_field :lot_no %>
     </div>
@@ -33,17 +33,17 @@
 
   <div class="three fields">
     <div class="field">
-      <%= f.label :in_sqm %>
+      <%= f.label "Internal Area (sqm)" %>
       <%= f.text_field :in_sqm %>
     </div>
 
     <div class="field">
-      <%= f.label :out_sqm %>
+      <%= f.label "External Area (sqm)" %>
       <%= f.text_field :out_sqm %>
     </div>
     
     <div class="field">
-      <%= f.label :total_sqm %>
+      <%= f.label "Total Area (sqm)" %>
       <%= f.text_field :total_sqm %>
     </div>
   </div>
@@ -56,17 +56,17 @@
   <div class="three fields">
     <div class="field">
       <%= f.label "On Level" %>
-      <%= f.text_field :floor_level %>
+      <%= f.text_field :floor_level, placeholder: "e.g. 23, Mezzanine" %>
     </div>
 
     <div class="field">
       <%= f.label "Facing" %>
-      <%= f.text_field :room_dir %>
+      <%= f.text_field :room_dir, placeholder: "e.g. South/West" %>
     </div>
 
     <div class="field">
       <%= f.label "Type" %>
-      <%= f.text_field :room_type %>
+      <%= f.text_field :room_type, placeholder: "e.g. 2B - Type B " %>
     </div>
 
   </div>

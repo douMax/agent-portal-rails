@@ -16,6 +16,9 @@
             <%= link_to edit_document_path(document) do %>
               <i class="edit grey icon"></i>
             <% end %>
+            <%= link_to document_path(document), data:{:confirm => "Are you sure you want to delete this lot? The  data can not be recovered"}, :method => :delete do %>
+              <i class="trash grey icon"></i>
+            <% end %>
           </span>
 
         <% end %>
