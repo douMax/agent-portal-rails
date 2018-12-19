@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :name, presence: true, uniqueness: true, length: {minimum: 3}
+  validates :email, presence: true, uniqueness: true, length: {minimum: 5}
   has_many :documents
   has_and_belongs_to_many :projects
 end
