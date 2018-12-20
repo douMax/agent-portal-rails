@@ -28,7 +28,7 @@ class LotsController < ApplicationController
 
   def index
     @lots = @project.lots
-    @lots = @lots.order(lot_no: :desc)
+    @lots = @lots.order('lot_no::integer DESC')
   end
 
   def create
