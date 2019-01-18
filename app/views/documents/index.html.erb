@@ -17,6 +17,12 @@
   <div class="ui divider"></div>
 
 
+  <h3>Contract of Sale</h3>
+    <%= render 'document_items', documents: Document.contract_of_sale %>  
+    
+  <div class="ui divider"></div>
+
+
   <h3>Floorplan</h3>
     <%= render 'document_items', documents: Document.floorplan %>    
     
@@ -26,6 +32,8 @@
     <%= render 'document_items', documents: Document.specifications %>    
 
   <div class="ui divider"></div>
+
+   
 
 
   <% if @current_user.present? && (@current_user.is_admin || @current_user.is_sales_admin) %>

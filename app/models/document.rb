@@ -16,6 +16,6 @@
 
 class Document < ApplicationRecord
   belongs_to :user, optional: true
-  enum :category => [:collateral, :brochure, :floorplan, :renders, :specifications]
+  enum :category => [:collateral, :brochure, :contract_of_sale, :floorplan, :renders, :specifications]
 
 end
