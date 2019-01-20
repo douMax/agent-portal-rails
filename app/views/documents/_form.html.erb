@@ -3,18 +3,26 @@
 <%= form_for(document, html:{multipart: true}) do |f| %>
 
   <div class="field required">
-    <%= f.label "File" %>
-
-    <div class="ui top attached tabular menu">
-      <div class="active item" data-tab="first">Upload</div>
-      <div class="item" data-tab="second">Link</div>
+    <div class="ui secondary pointing tabular menu">
+      <div class="active item" data-tab="first">
+        <i class="desktop icon"></i>
+        Upload
+      </div>
+      <div class="item" data-tab="second">
+        <i class="dropbox icon"></i>
+        Add Link
+      </div>
     </div>
-    <div class="ui active tab bottom attached segment" data-tab="first">
-      <h5>Upload file from your computer</h5>
+
+    
+
+    <div class="ui active tab segment" data-tab="first">
+      <h5>Upload file from your computer. File size must be less than 10MB</h5>
       <%= f.cl_image_upload :url, {html: {id:"document-upload"}} %>
+      <div class="ui message hidden" id="upload-msg"></div>
     </div>
     <div class="ui tab bottom attached segment" data-tab="second">
-      <h5>Or, paste link from Dropbox, Google Drive, ect.</h5>
+      <h5>Paste shared link from Dropbox, Google Drive, ect.</h5>
       <%= f.text_field :url %>
     </div>
   </div>
